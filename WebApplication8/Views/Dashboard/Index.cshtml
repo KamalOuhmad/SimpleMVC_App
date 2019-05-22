@@ -1,0 +1,32 @@
+﻿@model WebApplication8.Models.DashboardIndexModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<fieldset>
+    <legend>Package</legend>
+
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Package.State.Name)
+    </div>
+
+    @Html.DropDownListFor(model => model.Package.State.Id, new SelectList(
+                  new List<Object>{
+                       new { value = 0 , text = "Red"  },
+                       new { value = 1 , text = "Blue" },
+                       new { value = 2 , text = "Green"}
+                    },
+                  "value",
+                  "text",
+                   2))
+
+
+
+    @Html.DropDownListFor(model => model.Package.State.Id, Model.PackageStates)
+
+</fieldset>
+
+
